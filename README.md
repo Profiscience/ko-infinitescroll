@@ -9,10 +9,15 @@
 var todos = ko.observableArray([])
 
 function fetchTodos() {
+  // `this` is the binding context
+  var ctx = this
+
+  ctx._page = ctx._page ? ++ctx._page : 1
+
   // Return promise so infinite scroll function can be disabled
   // until the call is resolved. If no promise is returned the
   // infinite scroll function is assumed to be synchronous
-	return $.get('/todos', function(newTodos) {
+	return $.get('/todos', { page: ctx._page }, function(newTodos) {
 
     // append new todos
 		todos.push.apply(todos, newTodos)
@@ -24,7 +29,7 @@ fetchTodos()
 ```
 
 ```html
-<div data-bind="foreach: todos, infiniteScroll: fetchMoreItems">
+<div data-bind="foreach: todos, infiniteScroll: fetchToDos">
   <div data-bind="template: { name: 'todo-template', data: $data }"></div>
 </div>
 ```
@@ -32,7 +37,7 @@ fetchTodos()
 __or__
 
 ```html
-<div data-bind="foreach: todos, infiniteScroll: { handler: fetchMoreTodos, offset: 2000 }">
+<div data-bind="foreach: todos, infiniteScroll: { handler: fetchToDos, offset: 2000 }">
   <div data-bind="template: { name: 'todo-template', data: $data }"></div>
 </div>
 ```
