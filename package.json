@@ -1,6 +1,6 @@
 {
   "name": "ko-infinitescroll",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "KnockoutJS Infinite Scroll Binding",
   "homepage": "http://github.com/caseyWebb/ko-infinitescroll",
   "main": "index.js",
