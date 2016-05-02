@@ -16,9 +16,9 @@
   ],
   "author": "Casey Webb <notcaseywebb@gmail.com>",
   "license": "MIT",
-  "dependencies": {
-    "jquery": ">=1.8.0",
+  "peerDependencies": {
+    "jquery": "^2.0.0",
     "knockout": "^3.0.0",
-    "lodash": "^3.0.0"
+    "lodash": "^4.0.0"
   }
 }
