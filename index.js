@@ -12,7 +12,9 @@
   ko.bindingHandlers.infiniteScroll = {
 
     init: function(el, valueAccessor, allBindings, viewModel, context) {
-      var handler, offset
+      var handler, offset, $container
+
+      $container = allBindings.get('infiniteScrollContainerId') || document
 
       if (typeof valueAccessor() === 'function') {
         handler = valueAccessor()
@@ -51,11 +53,11 @@
       }
 
       function armTrigger() {
-        $(document).on('scroll.infinitescroll', _.throttle(handleScroll, 300))
+        $($container).on('scroll.infinitescroll', _.throttle(handleScroll, 300))
       }
 
       function disarmTrigger() {
-        $(document).off('scroll.infinitescroll')
+        $($container).off('scroll.infinitescroll')
       }
     }
   }
