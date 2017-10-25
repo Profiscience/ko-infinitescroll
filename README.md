@@ -1,5 +1,7 @@
 # ko-infinitescroll
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Profiscience/ko-infinitescroll.svg)](https://greenkeeper.io/)
+
 [KnockoutJS](http://knockoutjs.com) binding to handle infinite scrolling.
 
 ### Usage
